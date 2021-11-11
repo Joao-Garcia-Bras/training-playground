@@ -18,3 +18,4 @@ parameters { choice(name: 'CHOICES', choices: ['build', 'test'], description: ''
     		steps{echo 'test'}
     	}
 }
+}
