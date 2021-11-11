@@ -1,19 +1,19 @@
 pipeline {
-    agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
-	}
+    agent none 
     stages {
-        stage('build') {
+        stage('Example Build') {
+            agent { docker 'maven:3.8.1-adoptopenjdk-11' } 
             steps {
-                sh "exit \$((RANDOM % 2))"
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-    }
-    post{
-    	success{echo 'sucess'}
-	failure{echo 'failure'}
-	always{echo 'always'}
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
     }
 }
