@@ -1,4 +1,9 @@
 pipeline {
+agent { 
+		docker { 
+			image 'alpine:latest' 
+		}
+	}
     stages {
         stage('Example Build') {
             agent { docker 'maven:3.8.1-adoptopenjdk-11' } 
