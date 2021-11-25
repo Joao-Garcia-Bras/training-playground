@@ -27,7 +27,7 @@ pipeline {
 			-DgeneratePom.description="nexus deploy"\
 			-DartifactId='nexusApp'\
 			-DgroupId=org.celfocus.jenkins.training\
-			-Dversion=1.0
+			-Dversion=1.0"
 
         }
     }
