@@ -17,6 +17,7 @@ pipeline {
         }
 	    
 	stage('publish') {
+	steps{
 		sh "mvn deploy:deploy-file \
 			-s settings-copy.xml\
 			-Durl='http://nexus:8081/repository/maven-releases/' \
@@ -28,7 +29,7 @@ pipeline {
 			-DartifactId='nexusApp'\
 			-DgroupId=org.celfocus.jenkins.training\
 			-Dversion=1.0"
-
+		}
         }
     }
 }
